@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">🏥 Patient Management System</div>
+    <div class="nav-links">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/patients}">Patients</a>
+        <a th:href="@{/doctors}">Doctors</a>
+        <a th:href="@{/appointments}">Appointments</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Dashboard</h1>
+    <p class="subtitle">
+        Logged in as <strong th:text="${session.loggedInUser}"></strong>
+        (<span th:text="${session.role}"></span>) —
+        <a th:href="@{/logout}">Logout</a>
+    </p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalPatients}"></div>
+            <div class="stat-label">Total Patients</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalDoctors}"></div>
+            <div class="stat-label">Total Doctors</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalAppointments}"></div>
+            <div class="stat-label">Total Appointments</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

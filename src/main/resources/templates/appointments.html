@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointment List</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">🏥 Patient Management System</div>
+    <div class="nav-links">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/patients}">Patients</a>
+        <a th:href="@{/doctors}">Doctors</a>
+        <a th:href="@{/appointments}">Appointments</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>All Appointments</h1>
+    <a class="btn-link" th:href="@{/appointments/new}">+ Book New Appointment</a>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date & Time</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="appt : ${appointments}">
+            <td th:text="${appt.id}"></td>
+            <td th:text="${appt.patient.name}"></td>
+            <td th:text="${appt.doctor.name}"></td>
+            <td th:text="${appt.appointmentDate}"></td>
+            <td th:text="${appt.reason}"></td>
+            <td th:text="${appt.status}"></td>
+            <td><a th:href="@{/appointments/delete/{id}(id=${appt.id})}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

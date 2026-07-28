@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+
+<div class="login-wrapper">
+    <form th:action="@{/login}" method="post">
+        <h1>🏥 Login</h1>
+        <p class="subtitle">Patient Management System</p>
+
+        <p class="error-text" th:if="${error}" th:text="${error}"></p>
+
+        <label>Username</label>
+        <input type="text" name="username" />
+
+        <label>Password</label>
+        <input type="password" name="password" />
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

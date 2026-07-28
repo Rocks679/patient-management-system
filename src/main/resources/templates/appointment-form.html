@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+</head>
+<body>
+
+<div class="navbar">
+    <div class="brand">🏥 Patient Management System</div>
+    <div class="nav-links">
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a th:href="@{/patients}">Patients</a>
+        <a th:href="@{/doctors}">Doctors</a>
+        <a th:href="@{/appointments}">Appointments</a>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Book New Appointment</h1>
+
+    <form th:action="@{/appointments/save}" th:object="${appointment}" method="post">
+        <label>Patient</label>
+        <select th:field="*{patient.id}">
+            <option th:each="p : ${patients}" th:value="${p.id}" th:text="${p.name}"></option>
+        </select>
+
+        <label>Doctor</label>
+        <select th:field="*{doctor.id}">
+            <option th:each="d : ${doctors}" th:value="${d.id}" th:text="${d.name}"></option>
+        </select>
+
+        <label>Appointment Date & Time</label>
+        <input type="datetime-local" th:field="*{appointmentDate}" />
+
+        <label>Reason</label>
+        <input type="text" th:field="*{reason}" />
+
+        <label>Status</label>
+        <select th:field="*{status}">
+            <option value="SCHEDULED">SCHEDULED</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="CANCELLED">CANCELLED</option>
+        </select>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+
+    <br>
+    <a th:href="@{/appointments}">Back to Appointments List</a>
+</div>
+
+</body>
+</html>

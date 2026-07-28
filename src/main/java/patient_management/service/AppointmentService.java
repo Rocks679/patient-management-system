@@ -1,0 +1,28 @@
+package patient_management.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import patient_management.entity.Appointment;
+import patient_management.repository.AppointmentRepository;
+
+import java.util.List;
+
+@Service
+public class AppointmentService {
+    @Autowired
+    private AppointmentRepository appointmentRepository;
+
+    public Appointment saveAppointment(Appointment appointment){
+        return appointmentRepository.save(appointment);
+    }
+
+    public List<Appointment> getAllAppointments(){
+        return appointmentRepository.findAll();
+    }
+    public Appointment getAppointmentById(Long id){
+        return appointmentRepository.findById(id).orElse(null);
+    }
+    public void deleteAppointment(Long id){
+        appointmentRepository.deleteById(id);
+    }
+}
