@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
@@ -13,11 +13,11 @@
 
         <p class="error-text" th:if="${error}" th:text="${error}"></p>
 
-        <label>Username</label>
-        <input type="text" name="username" />
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" />
 
-        <label>Password</label>
-        <input type="password" name="password" />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
 
         <button type="submit">Login</button>
     </form>

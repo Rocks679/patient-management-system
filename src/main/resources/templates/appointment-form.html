@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Book Appointment</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
@@ -20,24 +20,24 @@
     <h1>Book New Appointment</h1>
 
     <form th:action="@{/appointments/save}" th:object="${appointment}" method="post">
-        <label>Patient</label>
-        <select th:field="*{patient.id}">
+        <label for="patient">Patient</label>
+        <select id="patient" th:field="*{patient.id}">
             <option th:each="p : ${patients}" th:value="${p.id}" th:text="${p.name}"></option>
         </select>
 
-        <label>Doctor</label>
-        <select th:field="*{doctor.id}">
+        <label for="doctor">Doctor</label>
+        <select id="doctor" th:field="*{doctor.id}">
             <option th:each="d : ${doctors}" th:value="${d.id}" th:text="${d.name}"></option>
         </select>
 
-        <label>Appointment Date & Time</label>
-        <input type="datetime-local" th:field="*{appointmentDate}" />
+        <label for="appointmentDate">Appointment Date & Time</label>
+        <input type="datetime-local" id="appointmentDate" th:field="*{appointmentDate}" />
 
-        <label>Reason</label>
-        <input type="text" th:field="*{reason}" />
+        <label for="reason">Reason</label>
+        <input type="text" id="reason" th:field="*{reason}" />
 
-        <label>Status</label>
-        <select th:field="*{status}">
+        <label for="status">Status</label>
+        <select id="status" th:field="*{status}">
             <option value="SCHEDULED">SCHEDULED</option>
             <option value="COMPLETED">COMPLETED</option>
             <option value="CANCELLED">CANCELLED</option>

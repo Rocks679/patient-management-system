@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Register Doctor</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
@@ -20,17 +20,17 @@
     <h1>Register New Doctor</h1>
 
     <form th:action="@{/doctors/save}" th:object="${doctor}" method="post">
-        <label>Name</label>
-        <input type="text" th:field="*{name}" />
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" />
 
-        <label>Specialization</label>
-        <input type="text" th:field="*{specialization}" />
+        <label for="specialization">Specialization</label>
+        <input type="text" id="specialization" th:field="*{specialization}" />
 
-        <label>Phone Number</label>
-        <input type="text" th:field="*{phoneNumber}" />
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
 
-        <label>Email</label>
-        <input type="text" th:field="*{email}" />
+        <label for="email">Email</label>
+        <input type="text" id="email" th:field="*{email}" />
 
         <button type="submit">Register Doctor</button>
     </form>
